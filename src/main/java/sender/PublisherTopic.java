@@ -26,20 +26,16 @@ public class PublisherTopic {
             /** Start the connection **/
             connection.start();
 
-            /** Create a sender **/
-            TopicPublisher producer = session.createPublisher( topic) ;
+            /** Create a publisher **/
+            TopicPublisher publisher = session.createPublisher(topic);
 
             /** Create a message **/
-            String test ="TEST";
             TextMessage message = session.createTextMessage();
-            message.setText(test);
+            message.setText("MESSAGE PUBLISHER 1 ");
+            System.out.println("MESSAGE RECEIVED BY PUBLISHER 1: " + message.getText());
 
             /** Send the message **/
-            //- Persistent mode
-            //- Time to live
-            //- Priority
-            producer.publish(message, DeliveryMode.PERSISTENT,4,10000); ;
-
+            publisher.publish(message,DeliveryMode.PERSISTENT,9,10000);
 
             /** Close the session **/
             session.close();
@@ -47,7 +43,6 @@ public class PublisherTopic {
             /** Close the connection **/
             connection.close();
 
-            /*Test Commit*/
         }catch(Exception e){
 
             e.printStackTrace();

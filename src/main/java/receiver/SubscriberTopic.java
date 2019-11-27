@@ -28,16 +28,16 @@ public class SubscriberTopic {
             /** start the connection **/
             connection.start();
 
-            /** Create a receive **/
-            TopicSubscriber test = session.createSubscriber(topic);
+            /** Create a subscriber **/
+            TopicSubscriber subscriber = session.createSubscriber(topic) ;
+            TopicSubscriber subscriber2 = session.createSubscriber(topic) ;
 
-            /** receive the message **/
-            TextMessage message = (TextMessage)test.receive();
+            /** Receive the message **/
+            TextMessage message = (TextMessage)subscriber.receive();
+            System.out.println("\nLE MESSAGE EST :" + message.getText() + "\n");
 
-            /** print the message **/
-            System.out.println("Message received: " + message.getText() );
-
-
+            TextMessage message2 = (TextMessage)subscriber2.receive();
+            System.out.println("\nLE MESSAGE EST :" + message2.getText() + "\n");
 
         }catch(Exception e){
             e.printStackTrace();
