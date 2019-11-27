@@ -34,10 +34,13 @@ public class SubscriberTopic {
 
             /** Receive the message **/
             TextMessage message = (TextMessage)subscriber.receive();
-            System.out.println("\nLE MESSAGE EST :" + message.getText() + "\n");
+            System.out.println("\nMESSAGE RECEIVED FROM PUBLISHER 1 :" + message.getText() + "\n");
 
             TextMessage message2 = (TextMessage)subscriber2.receive();
-            System.out.println("\nLE MESSAGE EST :" + message2.getText() + "\n");
+            System.out.println("\nMESSAGE RECEIVED FROM PUBLISHER 1 :" + message2.getText() + "\n");
+
+            //Is a topic able to receive message from many publishers? No
+            //Is a queue able to send message to many subscribers? Yes
 
         }catch(Exception e){
             e.printStackTrace();
