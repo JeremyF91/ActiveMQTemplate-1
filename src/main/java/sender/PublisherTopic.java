@@ -47,6 +47,7 @@ public class PublisherTopic {
             /** Close the connection **/
             connection.close();
 
+            /*Test Commit*/
         }catch(Exception e){
 
             e.printStackTrace();
